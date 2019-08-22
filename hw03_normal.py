@@ -2,6 +2,7 @@
 # Напишите функцию, возвращающую ряд Фибоначчи с n-элемента до m-элемента.
 # Первыми элементами ряда считать цифры 1 1
 print('Задание 1')
+import math
 
 def fibonacci(n, m):
 
@@ -57,3 +58,33 @@ filter_new(arg, list)
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
 # Определить, будут ли они вершинами параллелограмма.
 print('Задание 4')
+
+print('Находим 4 отрезка')
+a1 = (1, 2)
+a2 = (3, 4)
+a3 = (5, 3)
+a4 = (3, 1)
+x1 = a1[0]
+x2 = a2[0]
+x3 = a3[0]
+x4 = a4[0]
+y1 = a1[1]
+y2 = a2[1]
+y3 = a3[1]
+y4 = a4[1]
+length1 = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+length2 = math.sqrt((x3 - x2)**2 + (y3 - y2)**2)
+length3 = math.sqrt((x4 - x3)**2 + (y4 - y3)**2)
+length4 = math.sqrt((x1 - x4)**2 + (y1 - y4)**2)
+diagonal = math.sqrt((x4 - x2)**2 + (y4 - y2)**2)
+print(f'Длина отрезка а1: {length1}')
+print(f'Длина отрезка а2: {length2}')
+print(f'Длина отрезка а3: {length3}')
+print(f'Длина отрезка а4: {length4}')
+print(f'Длина диагонали: {diagonal}')
+a1a2a4 = diagonal / length3
+a3a4a2 = diagonal / length1
+if a1a2a4 == a3a4a2 and length1 == length3 and length2 == length4:
+    print(f'Фигура - Прямоугольник')
+else:
+    print(f'Фигура - не прямоугольник')
