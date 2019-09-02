@@ -26,15 +26,22 @@ def list_dir_(path="."):
     return(lsdir)
 
 
-def copy_file():
-    shutil.copy('hw05_easy.py','hw05_easy_copy.py')
-    pass
+def copy_file(sourse, target):
+    try:
+        shutil.copy(sourse, target)
+    except FileExistsError:
+        print('Такой файл уже существует')
+
+
 
 
 def remove_file(filename):
     os.remove(filename)
 
 
+
+"""
+НИЖЕ ЗАКОМЕНТИРОВАННО, Чтобы работала связка с файлом normal
 #список папок
 list_dir = ["dir_1", "dir_2", "dir_3", "dir_4", "dir_5", "dir_6", "dir_7", "dir_8", "dir_9"]
 #скрипт создающий папки
@@ -54,6 +61,10 @@ print(f'{list_dir_(path=".")}')
 
 # Задача-3:
 # Напишите скрипт, создающий копию файла, из которого запущен данный скрипт.
-shutil.copy('hw05_easy.py', 'hw05_easy_copy.py')
+sourse = 'hw05_easy.py'
+target = 'hw05_easy_copy.py'
+shutil.copy(sourse, target)
 input('нажмите любую клавишу')
 os.remove("hw05_easy_copy.py")
+
+"""
